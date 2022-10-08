@@ -29,8 +29,5 @@ console.log(math.square(3));
 var urlstring = "https://altcampus.school/students/register?verified=false";
 
 var parseUrl = url.parse(urlstring);
-<<<<<<< HEAD
+
 console.log(parseUrl);
-=======
-console.log(parseUrl);
->>>>>>> ccedc17b4a081f3d7e80fc39c5a8bac13bb1fcc3
