@@ -1,5 +1,6 @@
 var http = require('http');
 var url = require('url');
+var fs = require('fs');
 // http.createServer((request, response) => {
 //     console.log(request, response);
 //     // response.StatusCode = 200;
@@ -23,7 +24,18 @@ function handlerRequest(req, res) {
         res.end();
     } else if (req.method === 'GET' && pathurl === '/about') {
         res.setHeader('content-type', 'text/html');
-        res.end('</h1>Welcome To Index Page</h1>');
+        fs.createReadStream('./about.html').pipe(res);
+        // fs.readFile('./about.html', (err, content) => {
+        //     if (err) {
+        //         console.log(err);
+        //     } else {
+        //         res.end(content);
+        //         console.log(content);
+
+
+        //     }
+
+        // });
     } else if (req.method === 'GET' && pathurl === '/users') {
         res.setHeader('content-type', 'text/html');
         res.end('</h1>Get user page</h1>');
