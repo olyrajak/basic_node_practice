@@ -17,17 +17,27 @@ var http = require('http');
 
 
 var server = http.createServer(handlerRequest);
+var qs = require('querystring');
 
 function handlerRequest(req, res) {
+    var dataFormat = req.headers['content-type'];
     var store = '';
     req.on('data', (chunk) => {
         store = store + chunk;
     });
     req.on('end', () => {
-        console.log(store);
+        if (dataFormat === 'application/json') {
+            var parseData = JSON.parse(store);
+            res.end(store);
+        }
+        if (dataFormat === 'application/x-www-form-urlencoded') {
+            var parseData = qs.parse(store);
+            res.end(JSON.stringify(parseData));
+        }
+        console.log(store, dataFormat);
 
     });
 }
-server.listen(3333, () => {
-    console.log("Server is listen on port 3333");
+server.listen(3533, () => {
+    console.log("Server is listen on port 3533");
 });
