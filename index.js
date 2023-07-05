@@ -19,9 +19,9 @@ fs.readFile('file.md', (err, msg) => {
     console.log(err, msg.toString);
     
 });
-let fileData = fs.readFileSync("file.md");
+let fileDatas = fs.readFileSync("file.md");
 
-console.log(fileData);
+console.log(fileDatas);
 
 let buff1 = Buffer.alloc(10);
 
