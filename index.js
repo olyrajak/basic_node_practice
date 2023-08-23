@@ -19,7 +19,11 @@ fs.readFile('file.md', (err, msg) => {
     console.log(err, msg.toString);
     
 });
+
+
 let fileDatas = fs.readFileSync("file.md");
+
+
 
 console.log(fileDatas);
 
