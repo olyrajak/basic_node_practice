@@ -4,6 +4,7 @@ var freeM = os.freemem();
 var cpu = os.cpus().length;
 var fs = require('fs');
 var url = require('url');
+
 var filepath = path.join(__dirname, 'file.md');
 
 console.log(freeM, cpu);
